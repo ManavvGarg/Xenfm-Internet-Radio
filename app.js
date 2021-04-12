@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/english', (req, res) => {
-    res.render('player/views/english')
+    res.render('english')
 })
 
 app.get('/english-lofi', (req, res) => {
