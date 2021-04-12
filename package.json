@@ -1,0 +1,26 @@
+{
+  "name": "xenfm-web-radio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ManavvGarg/xenfm-web-radio.git"
+  },
+  "author": "Manav Garg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ManavvGarg/xenfm-web-radio/issues"
+  },
+  "homepage": "https://github.com/ManavvGarg/xenfm-web-radio#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7",
+    "ws": "^7.4.4"
+  }
+}
