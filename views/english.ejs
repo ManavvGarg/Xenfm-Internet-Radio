@@ -21,20 +21,21 @@
     <meta property="og:url" content="https://xenfm.ga/" />
     <script async src="https://arc.io/widget.min.js#emhnn7qg"></script>
   </head>
-  <body class="has-animations">
+  <body class="has-animations" onload="songName()">
     <div class="body-wrap">
       <center>
       <header class="site-header reveal-from-top" style="width: 100%; max-width: 100%;">
         <div class="container"  style="width: 100%;">
           <div class="site-header-inner">
             <div class="brand" style="margin-top: 35%; margin-left: 20%;">
-              <div style="margin-top: 60%;">
-                <h1 style="margin-left: -55%;">XenFM<br><br>
+              <div style="margin-top: 0;">
+                <h1 style="margin-left: -55%; margin-top: 55%;">XenFM<br>
                   English Radio
-                </h1>
+                </h1><br><br><br>
+                Now Playing: <br> <span id="nowPlaying"><%= songInfo %></span>
               </div>
 
-              <div id="cover" style="float: right; margin-top: 20%; margin-left: 40%;">
+              <div id="cover" style="float: right; margin-top: 15%; margin-left: 40%;">
                 <div id="app" class="center">
                     <div id="main_cover">
                         <div id="main" class="center">
@@ -49,7 +50,6 @@
                         </div>
                     </div>
             
-                    <div id="app_info"><span>Play / Pause Radio</span></div>
 
                 </div>
                 <img src="/public/img/f1.gif" class="p_img">
@@ -57,19 +57,18 @@
             </div>
             <div id= "vol" style="display: inline-block; margin-top: 5%;">
               
-              <br><br><br><center>Volume Controls:</center><br>
+              <center><br>Current Volume: <span id="currentVol">5%</span> | Mute State: <span id="muteState">Not Muted ❌</span> </center><br>
 
             <a
             class="button button-primary button-wide-mobile pulse"
-            id = "mute"
             style="
               border: 0;
               width: 13%;
-              cursor: default;
+              cursor: pointer;
               background-color: white;
               color: black;
             "
-            href="#"
+            onclick="muteAudio()"
             >Mute</a>
 
 
@@ -79,11 +78,11 @@
             style="
               border: 0;
               width: 13%;
-              cursor: default;
+              cursor: pointer;
               background-color: white;
               color: black;
             "
-            href="#"
+            onclick="vol5()"
             >5%</a>
 
         <a
@@ -92,11 +91,11 @@
             style="
               border: 0;
               width: 13%;
-              cursor: default;
+              cursor: pointer;
               background-color: white;
               color: black;
             "
-            href="#"
+            onclick="vol20()"
             >20%</a>
 
             <a
@@ -105,11 +104,11 @@
             style="
               border: 0;
               width: 13%;
-              cursor: default;
+              cursor: pointer;
               background-color: white;
               color: black;
             "
-            href="#"
+            onclick="vol40()"
             >40%</a>
 
             <a
@@ -118,11 +117,11 @@
             style="
               border: 0;
               width: 13%;
-              cursor: default;
+              cursor: pointer;
               background-color: white;
               color: black;
             "
-            href="#"
+            onclick="vol60()"
             >60%</a>
 
             <a
@@ -131,11 +130,11 @@
             style="
               border: 0;
               width: 13%;
-              cursor: default;
+              cursor: pointer;
               background-color: white;
               color: black;
             "
-            href="#"
+            onclick="vol80()"
             >80%</a>
 
             <a
@@ -144,11 +143,11 @@
             style="
               border: 0;
               width: 13%;
-              cursor: default;
+              cursor: pointer;
               background-color: white;
               color: black;
             "
-            href="#"
+            onclick="vol100()"
             >100%</a>
             </div>
 

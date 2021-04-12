@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-
+//Radio info
+var internetradio = require('node-internet-radio');
 console.log(`Starting Server... `)
 app.listen(3000)
 console.log(`Done! Server listening at port 3000`);
@@ -15,8 +16,31 @@ app.get('/', (req, res) => {
     res.render('index')
 })
 
-app.get('/english', (req, res) => {
-    res.render('english')
+app.get('/english', async (req, res) => {
+
+
+    let songInfo;
+    let stream = "http://stream.zeno.fm/22zbngr6bm8uv";
+    await internetradio.getStationInfo(stream, (error, station) => {
+        if(error) {
+            console.log(error);
+            songInfo = "Problem getting song info from the server! Please stand by!"
+        }
+        songInfo = station.title;
+    })
+
+    await setInterval(async() => {
+        await internetradio.getStationInfo(stream, (error, station) => {
+            if(error) {
+                console.log(error);
+                songInfo = "Problem getting song info from the server! Please stand by!"
+            }
+            songInfo = station.title;
+        })
+    }, 7500)
+
+    res.render('english', { songInfo })
+
 })
 
 app.get('/english-lofi', (req, res) => {
