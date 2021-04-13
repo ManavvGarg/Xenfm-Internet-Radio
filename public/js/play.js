@@ -52,7 +52,9 @@ function vol60 () { audio.volume = 0.6; sessVol = 0.6; document.getElementById("
 function vol80 () { audio.volume = 0.8; sessVol = 0.8; document.getElementById("currentVol").innerHTML = "80%" }
 function vol100 () { audio.volume = 1; sessVol = 1; document.getElementById("currentVol").innerHTML = "100%" }
 
-
+setInterval(() => {
+    $('#nowPlaying').load(document.URL +  '  #nowPlaying');
+}, 7500)
 
 
 let posts = document.querySelectorAll(".p_img");
@@ -62,3 +64,8 @@ imagesLoaded( posts, function()
    document.querySelector("#cover").classList.add("loaded"); 
    document.querySelector("#loading").classList.add("loaded"); 
 });
+
+
+setInterval(() => {
+    $("#nowPlaying").load(" #nowPlaying > *");
+}, 7500)
