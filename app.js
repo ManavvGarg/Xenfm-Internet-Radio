@@ -336,7 +336,7 @@ app.get('/korean', async (req, res) => {
 
 app.get('/anime', async (req, res) => {
 
-    let songInfo;
+    
       
       function connect() {
           
@@ -348,6 +348,7 @@ app.get('/anime', async (req, res) => {
         };
       
         ws.onmessage = message => {
+            let songInfo;
             if (!message.data.length) return;
             let response;
             try {
@@ -377,14 +378,14 @@ app.get('/anime', async (req, res) => {
         };
       }
 
-      await connect();
+      let songName = await connect();
     
 
     await setInterval(async() => {
-        connect();
+        let songName = await connect();
     }, 65000)
 
-    res.render('anime', { songInfo })
+    res.render('anime', { songName })
 })
 
 
