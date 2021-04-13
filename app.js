@@ -369,7 +369,7 @@ app.get('/anime', async (req, res) => {
                     songInfo = `${response.d.song.title} - ${response.d.song.artists[0].name}`
                     
                     ws.close();
-                    break;
+                    return songInfo;
       
                 default:
                     break;
