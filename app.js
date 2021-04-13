@@ -24,15 +24,15 @@ app.get('/', (req, res) => {
     let agent = req.useragent;
 
     if(agent.isBot === true) {
-        res.send("bot")
+        res.send("bots arent allowed")
     }
 
     else if(agent.isMobile === true) {
-        res.send("mobile")
+        res.render("mobile")
     }
 
     else if(agent.isDesktop === true) {
-        res.send("index")
+        res.render("index")
     }
 
     else res.send("Server Side UserAgent Couldnt Detect which type of browser you are on. PROCESS FAILED: EXIT...")
