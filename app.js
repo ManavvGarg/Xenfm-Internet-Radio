@@ -81,7 +81,7 @@ app.get('/english-lofi', async (req, res) => {
     
 })
 
-app.get('/engish-rap', async (req, res) => {
+app.get('/english-rap', async (req, res) => {
 
     let songInfo;
     let stream = "http://stream.zeno.fm/qsuwm5q4cm8uv";
