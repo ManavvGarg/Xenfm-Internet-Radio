@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+var useragent = require('express-useragent');
 
 //Radio info
 var internetradio = require('node-internet-radio');
@@ -16,11 +17,25 @@ console.log(`Done! Server listening at port 3000`);
 
 app.set("view engine", "ejs");
 
-
+app.use(useragent.express());
 app.use('/public', express.static('public'))
 
 app.get('/', (req, res) => {
-    res.render('index')
+    let agent = req.useragent;
+
+    if(agent.isBot === true) {
+        res.send("bot")
+    }
+
+    else if(agent.isMobile === true) {
+        res.send("mobile")
+    }
+
+    else if(agent.isDesktop === true) {
+        res.send("index")
+    }
+
+    else res.send("Server Side UserAgent Couldnt Detect which type of browser you are on. PROCESS FAILED: EXIT...")
 })
 
 app.get('/english', async (req, res) => {
@@ -48,7 +63,24 @@ app.get('/english', async (req, res) => {
         })
     }, 65000)
 
-    res.render('english', { songInfo })
+
+    let agent = req.useragent;
+
+    if(agent.isBot === true) {
+        res.send("bot")
+    }
+
+    else if(agent.isMobile === true) {
+        res.send("mobile")
+    }
+
+    else if(agent.isDesktop === true) {
+        res.render('english', { songInfo })
+    }
+
+    else res.send("Server Side UserAgent Couldnt Detect which type of browser you are on. PROCESS FAILED: EXIT...")
+
+   // res.render('english', { songInfo })
 
 })
 
@@ -77,7 +109,24 @@ app.get('/english-lofi', async (req, res) => {
         })
     }, 65000)
 
-    res.render('english-lofi', { songInfo })
+
+    let agent = req.useragent;
+
+    if(agent.isBot === true) {
+        res.send("bot")
+    }
+
+    else if(agent.isMobile === true) {
+        res.send("mobile")
+    }
+
+    else if(agent.isDesktop === true) {
+        res.render('english-lofi', { songInfo })
+    }
+
+    else res.send("Server Side UserAgent Couldnt Detect which type of browser you are on. PROCESS FAILED: EXIT...")
+
+    //res.render('english-lofi', { songInfo })
     
 })
 
@@ -105,7 +154,24 @@ app.get('/english-rap', async (req, res) => {
         })
     }, 65000)
 
-    res.render('english-rap', { songInfo })
+
+    let agent = req.useragent;
+
+    if(agent.isBot === true) {
+        res.send("bot")
+    }
+
+    else if(agent.isMobile === true) {
+        res.send("mobile")
+    }
+
+    else if(agent.isDesktop === true) {
+        res.render('english-rap', { songInfo })
+    }
+
+    else res.send("Server Side UserAgent Couldnt Detect which type of browser you are on. PROCESS FAILED: EXIT...")
+
+    //res.render('english-rap', { songInfo })
 })
 
 app.get('/english-electro', async (req, res) => {
@@ -133,7 +199,24 @@ app.get('/english-electro', async (req, res) => {
         })
     }, 65000)
 
-    res.render('english-electro', { songInfo })
+
+    let agent = req.useragent;
+
+    if(agent.isBot === true) {
+        res.send("bot")
+    }
+
+    else if(agent.isMobile === true) {
+        res.send("mobile")
+    }
+
+    else if(agent.isDesktop === true) {
+        res.render('english-electro', { songInfo })
+    }
+
+    else res.send("Server Side UserAgent Couldnt Detect which type of browser you are on. PROCESS FAILED: EXIT...")
+
+    //res.render('english-electro', { songInfo })
 
 })
 
@@ -162,7 +245,24 @@ app.get('/hindi', async (req, res) => {
         })
     }, 65000)
 
-    res.render('hindi', { songInfo })
+
+    let agent = req.useragent;
+
+    if(agent.isBot === true) {
+        res.send("bot")
+    }
+
+    else if(agent.isMobile === true) {
+        res.send("mobile")
+    }
+
+    else if(agent.isDesktop === true) {
+        res.render('hindi', { songInfo })
+    }
+
+    else res.send("Server Side UserAgent Couldnt Detect which type of browser you are on. PROCESS FAILED: EXIT...")
+
+    //res.render('hindi', { songInfo })
 
 })
 
@@ -191,7 +291,24 @@ app.get('/hindi-lofi', async (req, res) => {
         })
     }, 65000)
 
-    res.render('hindi-lofi', { songInfo })
+
+    let agent = req.useragent;
+
+    if(agent.isBot === true) {
+        res.send("bot")
+    }
+
+    else if(agent.isMobile === true) {
+        res.send("mobile")
+    }
+
+    else if(agent.isDesktop === true) {
+        res.render('hindi-lofi', { songInfo })
+    }
+
+    else res.send("Server Side UserAgent Couldnt Detect which type of browser you are on. PROCESS FAILED: EXIT...")
+
+    //res.render('hindi-lofi', { songInfo })
 })
 
 app.get('/hindi-classics', async (req, res) => {
@@ -219,7 +336,24 @@ app.get('/hindi-classics', async (req, res) => {
         })
     }, 65000)
 
-    res.render('hindi-classics', { songInfo })
+
+    let agent = req.useragent;
+
+    if(agent.isBot === true) {
+        res.send("bot")
+    }
+
+    else if(agent.isMobile === true) {
+        res.send("mobile")
+    }
+
+    else if(agent.isDesktop === true) {
+        res.render('hindi-classics', { songInfo })
+    }
+
+    else res.send("Server Side UserAgent Couldnt Detect which type of browser you are on. PROCESS FAILED: EXIT...")
+
+    //res.render('hindi-classics', { songInfo })
 })
 
 app.get('/gaming', async (req, res) => {
@@ -247,7 +381,24 @@ app.get('/gaming', async (req, res) => {
         })
     }, 65000)
 
-    res.render('gaming', { songInfo })
+
+    let agent = req.useragent;
+
+    if(agent.isBot === true) {
+        res.send("bot")
+    }
+
+    else if(agent.isMobile === true) {
+        res.send("mobile")
+    }
+
+    else if(agent.isDesktop === true) {
+        res.render('gaming', { songInfo })
+    }
+
+    else res.send("Server Side UserAgent Couldnt Detect which type of browser you are on. PROCESS FAILED: EXIT...")
+
+    //res.render('gaming', { songInfo })
 })
 
 app.get('/study', async (req, res) => {
@@ -275,7 +426,24 @@ app.get('/study', async (req, res) => {
         })
     }, 65000)
 
-    res.render('study', { songInfo })
+
+    let agent = req.useragent;
+
+    if(agent.isBot === true) {
+        res.send("bot")
+    }
+
+    else if(agent.isMobile === true) {
+        res.send("mobile")
+    }
+
+    else if(agent.isDesktop === true) {
+        res.render('study', { songInfo })
+    }
+
+    else res.send("Server Side UserAgent Couldnt Detect which type of browser you are on. PROCESS FAILED: EXIT...")
+
+   // res.render('study', { songInfo })
 })
 
 app.get('/japanese', async (req, res) => {
@@ -303,7 +471,24 @@ app.get('/japanese', async (req, res) => {
         })
     }, 65000)
 
-    res.render('japanese', { songInfo })
+
+    let agent = req.useragent;
+
+    if(agent.isBot === true) {
+        res.send("bot")
+    }
+
+    else if(agent.isMobile === true) {
+        res.send("mobile")
+    }
+
+    else if(agent.isDesktop === true) {
+        res.render('japanese', { songInfo })
+    }
+
+    else res.send("Server Side UserAgent Couldnt Detect which type of browser you are on. PROCESS FAILED: EXIT...")
+
+   // res.render('japanese', { songInfo })
 })
 
 app.get('/korean', async (req, res) => {
@@ -331,7 +516,24 @@ app.get('/korean', async (req, res) => {
         })
     }, 65000)
 
-    res.render('korean', { songInfo })
+
+    let agent = req.useragent;
+
+    if(agent.isBot === true) {
+        res.send("bot")
+    }
+
+    else if(agent.isMobile === true) {
+        res.send("mobile")
+    }
+
+    else if(agent.isDesktop === true) {
+        res.render('korean', { songInfo })
+    }
+
+    else res.send("Server Side UserAgent Couldnt Detect which type of browser you are on. PROCESS FAILED: EXIT...")
+
+    //res.render('korean', { songInfo })
 })
 
 app.get('/anime', async (req, res) => {
@@ -385,7 +587,24 @@ app.get('/anime', async (req, res) => {
         let songName = await connect();
     }, 65000)
 
-    res.render('anime', { songName })
+
+    let agent = req.useragent;
+
+    if(agent.isBot === true) {
+        res.send("bot")
+    }
+
+    else if(agent.isMobile === true) {
+        res.send("mobile")
+    }
+
+    else if(agent.isDesktop === true) {
+        res.render('anime', { songName })
+    }
+
+    else res.send("Server Side UserAgent Couldnt Detect which type of browser you are on. PROCESS FAILED: EXIT...")
+
+    //res.render('anime', { songName })
 })
 
 
