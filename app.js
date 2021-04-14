@@ -446,6 +446,51 @@ app.get('/study', async (req, res) => {
    // res.render('study', { songInfo })
 })
 
+app.get('/copyright-free', async (req, res) => {
+
+
+    let songInfo;
+    let stream = "http://stream.zeno.fm/sv5y0egvus8uv";
+    await internetradio.getStationInfo(stream, (error, station) => {
+        if(error) {
+            console.log(error);
+            songInfo = "Problem getting song info from the server! Please stand by!"
+        }
+        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by!"
+        else songInfo = station.title;
+    })
+
+    await setInterval(async() => {
+        await internetradio.getStationInfo(stream, (error, station) => {
+            if(error) {
+                console.log(error);
+                songInfo = "Problem getting song info from the server! Please stand by!"
+            }
+            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by!"
+            else songInfo = station.title;
+        })
+    }, 65000)
+
+
+    let agent = req.useragent;
+
+    if(agent.isBot === true) {
+        res.send("bot")
+    }
+
+    else if(agent.isMobile === true) {
+        res.send("mobile")
+    }
+
+    else if(agent.isDesktop === true) {
+        res.render('DMCA', { songInfo })
+    }
+
+    else res.send("Server Side UserAgent Couldnt Detect which type of browser you are on. PROCESS FAILED: EXIT...")
+
+   // res.render('study', { songInfo })
+})
+
 app.get('/japanese', async (req, res) => {
 
 
