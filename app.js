@@ -46,9 +46,9 @@ app.get('/english', async (req, res) => {
     await internetradio.getStationInfo(stream, (error, station) => {
         if(error) {
             console.log(error);
-            songInfo = "Problem getting song info from the server! Please stand by!"
+            songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
         }
-        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by!"
+        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
         else songInfo = station.title;
     })
 
@@ -56,12 +56,12 @@ app.get('/english', async (req, res) => {
         await internetradio.getStationInfo(stream, (error, station) => {
             if(error) {
                 console.log(error);
-                songInfo = "Problem getting song info from the server! Please stand by!"
+                songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
             }
-            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by!"
+            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
             else songInfo = station.title;
         })
-    }, 65000)
+    }, 60000)
 
 
     let agent = req.useragent;
@@ -92,9 +92,9 @@ app.get('/english-lofi', async (req, res) => {
     await internetradio.getStationInfo(stream, (error, station) => {
         if(error) {
             console.log(error);
-            songInfo = "Problem getting song info from the server! Please stand by!"
+            songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
         }
-        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by!"
+        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
         else songInfo = station.title;
     })
 
@@ -102,12 +102,12 @@ app.get('/english-lofi', async (req, res) => {
         await internetradio.getStationInfo(stream, (error, station) => {
             if(error) {
                 console.log(error);
-                songInfo = "Problem getting song info from the server! Please stand by!"
+                songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
             }
-            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by!"
+            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
             else songInfo = station.title;
         })
-    }, 65000)
+    }, 60000)
 
 
     let agent = req.useragent;
@@ -137,9 +137,9 @@ app.get('/english-rap', async (req, res) => {
     await internetradio.getStationInfo(stream, (error, station) => {
         if(error) {
             console.log(error);
-            songInfo = "Problem getting song info from the server! Please stand by!"
+            songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
         }
-        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by!"
+        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
         else songInfo = station.title;
     })
 
@@ -147,12 +147,12 @@ app.get('/english-rap', async (req, res) => {
         await internetradio.getStationInfo(stream, (error, station) => {
             if(error) {
                 console.log(error);
-                songInfo = "Problem getting song info from the server! Please stand by!"
+                songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
             }
-            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by!"
+            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
             else songInfo = station.title;
         })
-    }, 65000)
+    }, 60000)
 
 
     let agent = req.useragent;
@@ -182,9 +182,9 @@ app.get('/english-electro', async (req, res) => {
     await internetradio.getStationInfo(stream, (error, station) => {
         if(error) {
             console.log(error);
-            songInfo = "Problem getting song info from the server! Please stand by!"
+            songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
         }
-        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by!"
+        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
         else songInfo = station.title;
     })
 
@@ -192,12 +192,12 @@ app.get('/english-electro', async (req, res) => {
         await internetradio.getStationInfo(stream, (error, station) => {
             if(error) {
                 console.log(error);
-                songInfo = "Problem getting song info from the server! Please stand by!"
+                songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
             }
-            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by!"
+            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
             else songInfo = station.title;
         })
-    }, 65000)
+    }, 60000)
 
 
     let agent = req.useragent;
@@ -228,9 +228,9 @@ app.get('/hindi', async (req, res) => {
     await internetradio.getStationInfo(stream, (error, station) => {
         if(error) {
             console.log(error);
-            songInfo = "Problem getting song info from the server! Please stand by!"
+            songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
         }
-        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by!"
+        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
         else songInfo = station.title;
     })
 
@@ -238,12 +238,12 @@ app.get('/hindi', async (req, res) => {
         await internetradio.getStationInfo(stream, (error, station) => {
             if(error) {
                 console.log(error);
-                songInfo = "Problem getting song info from the server! Please stand by!"
+                songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
             }
-            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by!"
+            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
             else songInfo = station.title;
         })
-    }, 65000)
+    }, 60000)
 
 
     let agent = req.useragent;
@@ -274,9 +274,9 @@ app.get('/hindi-lofi', async (req, res) => {
     await internetradio.getStationInfo(stream, (error, station) => {
         if(error) {
             console.log(error);
-            songInfo = "Problem getting song info from the server! Please stand by!"
+            songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
         }
-        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by!"
+        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
         else songInfo = station.title;
     })
 
@@ -284,12 +284,12 @@ app.get('/hindi-lofi', async (req, res) => {
         await internetradio.getStationInfo(stream, (error, station) => {
             if(error) {
                 console.log(error);
-                songInfo = "Problem getting song info from the server! Please stand by!"
+                songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
             }
-            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by!"
+            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
             else songInfo = station.title;
         })
-    }, 65000)
+    }, 60000)
 
 
     let agent = req.useragent;
@@ -319,9 +319,9 @@ app.get('/hindi-classics', async (req, res) => {
     await internetradio.getStationInfo(stream, (error, station) => {
         if(error) {
             console.log(error);
-            songInfo = "Problem getting song info from the server! Please stand by!"
+            songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
         }
-        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by!"
+        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
         else songInfo = station.title;
     })
 
@@ -329,12 +329,12 @@ app.get('/hindi-classics', async (req, res) => {
         await internetradio.getStationInfo(stream, (error, station) => {
             if(error) {
                 console.log(error);
-                songInfo = "Problem getting song info from the server! Please stand by!"
+                songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
             }
-            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by!"
+            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
             else songInfo = station.title;
         })
-    }, 65000)
+    }, 60000)
 
 
     let agent = req.useragent;
@@ -364,9 +364,9 @@ app.get('/gaming', async (req, res) => {
     await internetradio.getStationInfo(stream, (error, station) => {
         if(error) {
             console.log(error);
-            songInfo = "Problem getting song info from the server! Please stand by!"
+            songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
         }
-        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by!"
+        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
         else songInfo = station.title;
     })
 
@@ -374,12 +374,12 @@ app.get('/gaming', async (req, res) => {
         await internetradio.getStationInfo(stream, (error, station) => {
             if(error) {
                 console.log(error);
-                songInfo = "Problem getting song info from the server! Please stand by!"
+                songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
             }
-            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by!"
+            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
             else songInfo = station.title;
         })
-    }, 65000)
+    }, 60000)
 
 
     let agent = req.useragent;
@@ -409,9 +409,9 @@ app.get('/study', async (req, res) => {
     await internetradio.getStationInfo(stream, (error, station) => {
         if(error) {
             console.log(error);
-            songInfo = "Problem getting song info from the server! Please stand by!"
+            songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
         }
-        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by!"
+        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
         else songInfo = station.title;
     })
 
@@ -419,12 +419,12 @@ app.get('/study', async (req, res) => {
         await internetradio.getStationInfo(stream, (error, station) => {
             if(error) {
                 console.log(error);
-                songInfo = "Problem getting song info from the server! Please stand by!"
+                songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
             }
-            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by!"
+            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
             else songInfo = station.title;
         })
-    }, 65000)
+    }, 60000)
 
 
     let agent = req.useragent;
@@ -454,9 +454,9 @@ app.get('/copyright-free', async (req, res) => {
     await internetradio.getStationInfo(stream, (error, station) => {
         if(error) {
             console.log(error);
-            songInfo = "Problem getting song info from the server! Please stand by!"
+            songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
         }
-        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by!"
+        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
         else songInfo = station.title;
     })
 
@@ -464,12 +464,12 @@ app.get('/copyright-free', async (req, res) => {
         await internetradio.getStationInfo(stream, (error, station) => {
             if(error) {
                 console.log(error);
-                songInfo = "Problem getting song info from the server! Please stand by!"
+                songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
             }
-            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by!"
+            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
             else songInfo = station.title;
         })
-    }, 65000)
+    }, 60000)
 
 
     let agent = req.useragent;
@@ -499,9 +499,9 @@ app.get('/japanese', async (req, res) => {
     await internetradio.getStationInfo(stream, (error, station) => {
         if(error) {
             console.log(error);
-            songInfo = "Problem getting song info from the server! Please stand by!"
+            songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
         }
-        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by!"
+        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
         else songInfo = station.title;
     })
 
@@ -509,12 +509,12 @@ app.get('/japanese', async (req, res) => {
         await internetradio.getStationInfo(stream, (error, station) => {
             if(error) {
                 console.log(error);
-                songInfo = "Problem getting song info from the server! Please stand by!"
+                songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
             }
-            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by!"
+            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
             else songInfo = station.title;
         })
-    }, 65000)
+    }, 60000)
 
 
     let agent = req.useragent;
@@ -544,9 +544,9 @@ app.get('/korean', async (req, res) => {
     await internetradio.getStationInfo(stream, (error, station) => {
         if(error) {
             console.log(error);
-            songInfo = "Problem getting song info from the server! Please stand by!"
+            songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
         }
-        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by!"
+        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
         else songInfo = station.title;
     })
 
@@ -554,12 +554,12 @@ app.get('/korean', async (req, res) => {
         await internetradio.getStationInfo(stream, (error, station) => {
             if(error) {
                 console.log(error);
-                songInfo = "Problem getting song info from the server! Please stand by!"
+                songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
             }
-            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by!"
+            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
             else songInfo = station.title;
         })
-    }, 65000)
+    }, 60000)
 
 
     let agent = req.useragent;

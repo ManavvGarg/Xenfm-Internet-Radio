@@ -68,4 +68,4 @@ imagesLoaded( posts, function()
 
 setInterval(() => {
     $("#nowPlaying").load(" #nowPlaying > *");
-}, 7500)
+}, 60000)
