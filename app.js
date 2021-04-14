@@ -625,13 +625,6 @@ app.get('/anime', async (req, res) => {
         };
       }
 
-      let songName = await connect();
-    
-
-    await setInterval(async() => {
-        let songName = await connect();
-    }, 65000)
-
 
     let agent = req.useragent;
 
@@ -644,7 +637,7 @@ app.get('/anime', async (req, res) => {
     }
 
     else if(agent.isDesktop === true) {
-        res.render('anime', { songName })
+        res.send("Page Under construction. Please stand by.")
     }
 
     else res.send("Server Side UserAgent Couldnt Detect which type of browser you are on. PROCESS FAILED: EXIT...")
