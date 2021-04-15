@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 var useragent = require('express-useragent');
+importScripts('https://arc.io/arc-sw-core.js')
 
 //Radio info
 var internetradio = require('node-internet-radio');
