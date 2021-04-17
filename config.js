@@ -1,1 +1,1 @@
-exports.mongoURI = "mongodb+srv://adminManav:manav@123!$@cluster0.p3thx.mongodb.net/XenFM?retryWrites=true&w=majority"
+exports.mongoURI = "mongodb+srv://adminManav:manav@123!$@cluster0.p3thx.mongodb.net/Radio?retryWrites=true&w=majority"

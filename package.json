@@ -22,6 +22,7 @@
     "express": "^4.17.1",
     "express-useragent": "^1.0.15",
     "fs": "0.0.1-security",
+    "mongoose": "^5.12.4",
     "node-internet-radio": "^0.2.1",
     "path": "^0.12.7",
     "ws": "^7.4.4"

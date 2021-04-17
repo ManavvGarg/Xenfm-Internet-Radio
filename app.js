@@ -1,11 +1,28 @@
 const express = require('express');
 const app = express();
 var useragent = require('express-useragent');
-importScripts('https://arc.io/arc-sw-core.js')
+const mongoose = require("mongoose")
+const radio = require("./models/radio")
+const { mongoURI } = require("./config")
+let sN;
 
 //Radio info
-var internetradio = require('node-internet-radio');
+mongoose.connect(mongoURI, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+  keepAlive: true, 
+  keepAliveInitialDelay: 300000
+}).then(async () => {
+        console.log(`DB Connected.`);
+         sN = await radio.findOne();
 
+         setInterval(async() => {
+           sN = await radio.findOne();
+         }, 65000)
+      });
+
+
+console.log(sN)
 //Anime radio info
 const WebSocket = require("ws")
 let heartbeatInterval;
@@ -14,6 +31,8 @@ let ws;
 console.log(`Starting Server... `)
 app.listen(3000)
 console.log(`Done! Server listening at port 3000`);
+
+
   
 
 app.set("view engine", "ejs");
@@ -37,32 +56,16 @@ app.get('/', (req, res) => {
     }
 
     else res.send("Server Side UserAgent Couldnt Detect which type of browser you are on. PROCESS FAILED: EXIT...")
+});
+
+app.get('/arc-sw.js', async(req, res) => {
+  res.sendFile(__dirname + '/arc-sw.js')
 })
 
 app.get('/english', async (req, res) => {
 
 
-    let songInfo;
-    let stream = "http://stream.zeno.fm/22zbngr6bm8uv";
-    await internetradio.getStationInfo(stream, (error, station) => {
-        if(error) {
-            console.log(error);
-            songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-        }
-        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-        else songInfo = station.title;
-    })
-
-    await setInterval(async() => {
-        await internetradio.getStationInfo(stream, (error, station) => {
-            if(error) {
-                console.log(error);
-                songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-            }
-            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-            else songInfo = station.title;
-        })
-    }, 60000)
+  let songInfo = await sN.english;
 
 
     let agent = req.useragent;
@@ -88,27 +91,8 @@ app.get('/english', async (req, res) => {
 app.get('/english-lofi', async (req, res) => {
 
 
-    let songInfo;
-    let stream = "http://stream.zeno.fm/2ewgr4q6bm8uv";
-    await internetradio.getStationInfo(stream, (error, station) => {
-        if(error) {
-            console.log(error);
-            songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-        }
-        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-        else songInfo = station.title;
-    })
 
-    await setInterval(async() => {
-        await internetradio.getStationInfo(stream, (error, station) => {
-            if(error) {
-                console.log(error);
-                songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-            }
-            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-            else songInfo = station.title;
-        })
-    }, 60000)
+  let songInfo = await sN.englishLofi;
 
 
     let agent = req.useragent;
@@ -133,27 +117,9 @@ app.get('/english-lofi', async (req, res) => {
 
 app.get('/english-rap', async (req, res) => {
 
-    let songInfo;
-    let stream = "http://stream.zeno.fm/qsuwm5q4cm8uv";
-    await internetradio.getStationInfo(stream, (error, station) => {
-        if(error) {
-            console.log(error);
-            songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-        }
-        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-        else songInfo = station.title;
-    })
 
-    await setInterval(async() => {
-        await internetradio.getStationInfo(stream, (error, station) => {
-            if(error) {
-                console.log(error);
-                songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-            }
-            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-            else songInfo = station.title;
-        })
-    }, 60000)
+
+  let songInfo = await sN.englishRap;
 
 
     let agent = req.useragent;
@@ -178,27 +144,8 @@ app.get('/english-rap', async (req, res) => {
 app.get('/english-electro', async (req, res) => {
 
 
-    let songInfo;
-    let stream = "http://stream.zeno.fm/0qdyq6m6kg8uv";
-    await internetradio.getStationInfo(stream, (error, station) => {
-        if(error) {
-            console.log(error);
-            songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-        }
-        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-        else songInfo = station.title;
-    })
 
-    await setInterval(async() => {
-        await internetradio.getStationInfo(stream, (error, station) => {
-            if(error) {
-                console.log(error);
-                songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-            }
-            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-            else songInfo = station.title;
-        })
-    }, 60000)
+  let songInfo = await sN.englishElectro;
 
 
     let agent = req.useragent;
@@ -224,27 +171,8 @@ app.get('/english-electro', async (req, res) => {
 app.get('/hindi', async (req, res) => {
 
 
-    let songInfo;
-    let stream = "http://stream.zeno.fm/suczg0k0um0uv";
-    await internetradio.getStationInfo(stream, (error, station) => {
-        if(error) {
-            console.log(error);
-            songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-        }
-        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-        else songInfo = station.title;
-    })
 
-    await setInterval(async() => {
-        await internetradio.getStationInfo(stream, (error, station) => {
-            if(error) {
-                console.log(error);
-                songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-            }
-            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-            else songInfo = station.title;
-        })
-    }, 60000)
+  let songInfo = await sN.hindi;
 
 
     let agent = req.useragent;
@@ -270,27 +198,8 @@ app.get('/hindi', async (req, res) => {
 app.get('/hindi-lofi', async (req, res) => {
 
 
-    let songInfo;
-    let stream = "http://stream.zeno.fm/dkpfpt52yf8uv";
-    await internetradio.getStationInfo(stream, (error, station) => {
-        if(error) {
-            console.log(error);
-            songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-        }
-        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-        else songInfo = station.title;
-    })
 
-    await setInterval(async() => {
-        await internetradio.getStationInfo(stream, (error, station) => {
-            if(error) {
-                console.log(error);
-                songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-            }
-            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-            else songInfo = station.title;
-        })
-    }, 60000)
+  let songInfo = await sN.hindiLofi;
 
 
     let agent = req.useragent;
@@ -315,27 +224,8 @@ app.get('/hindi-lofi', async (req, res) => {
 app.get('/hindi-classics', async (req, res) => {
 
 
-    let songInfo;
-    let stream = "http://stream.zeno.fm/x89p67r7hg8uv";
-    await internetradio.getStationInfo(stream, (error, station) => {
-        if(error) {
-            console.log(error);
-            songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-        }
-        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-        else songInfo = station.title;
-    })
 
-    await setInterval(async() => {
-        await internetradio.getStationInfo(stream, (error, station) => {
-            if(error) {
-                console.log(error);
-                songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-            }
-            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-            else songInfo = station.title;
-        })
-    }, 60000)
+  let songInfo = await sN.hindiOld;
 
 
     let agent = req.useragent;
@@ -360,27 +250,9 @@ app.get('/hindi-classics', async (req, res) => {
 app.get('/gaming', async (req, res) => {
 
 
-    let songInfo;
-    let stream = "http://stream.zeno.fm/u9a1vdc61k8uv";
-    await internetradio.getStationInfo(stream, (error, station) => {
-        if(error) {
-            console.log(error);
-            songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-        }
-        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-        else songInfo = station.title;
-    })
 
-    await setInterval(async() => {
-        await internetradio.getStationInfo(stream, (error, station) => {
-            if(error) {
-                console.log(error);
-                songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-            }
-            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-            else songInfo = station.title;
-        })
-    }, 60000)
+
+  let songInfo = await sN.gaming;
 
 
     let agent = req.useragent;
@@ -405,27 +277,8 @@ app.get('/gaming', async (req, res) => {
 app.get('/study', async (req, res) => {
 
 
-    let songInfo;
-    let stream = "http://stream.zeno.fm/vskuwucpdg8uv";
-    await internetradio.getStationInfo(stream, (error, station) => {
-        if(error) {
-            console.log(error);
-            songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-        }
-        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-        else songInfo = station.title;
-    })
 
-    await setInterval(async() => {
-        await internetradio.getStationInfo(stream, (error, station) => {
-            if(error) {
-                console.log(error);
-                songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-            }
-            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-            else songInfo = station.title;
-        })
-    }, 60000)
+  let songInfo = await sN.study;
 
 
     let agent = req.useragent;
@@ -450,27 +303,8 @@ app.get('/study', async (req, res) => {
 app.get('/copyright-free', async (req, res) => {
 
 
-    let songInfo;
-    let stream = "http://stream.zeno.fm/sv5y0egvus8uv";
-    await internetradio.getStationInfo(stream, (error, station) => {
-        if(error) {
-            console.log(error);
-            songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-        }
-        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-        else songInfo = station.title;
-    })
 
-    await setInterval(async() => {
-        await internetradio.getStationInfo(stream, (error, station) => {
-            if(error) {
-                console.log(error);
-                songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-            }
-            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-            else songInfo = station.title;
-        })
-    }, 60000)
+  let songInfo = await sN.dmca;
 
 
     let agent = req.useragent;
@@ -495,27 +329,8 @@ app.get('/copyright-free', async (req, res) => {
 app.get('/japanese', async (req, res) => {
 
 
-    let songInfo;
-    let stream = "http://stream.zeno.fm/1qtx2umb7f8uv";
-    await internetradio.getStationInfo(stream, (error, station) => {
-        if(error) {
-            console.log(error);
-            songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-        }
-        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-        else songInfo = station.title;
-    })
 
-    await setInterval(async() => {
-        await internetradio.getStationInfo(stream, (error, station) => {
-            if(error) {
-                console.log(error);
-                songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-            }
-            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-            else songInfo = station.title;
-        })
-    }, 60000)
+  let songInfo = await sN.japanese;
 
 
     let agent = req.useragent;
@@ -540,27 +355,8 @@ app.get('/japanese', async (req, res) => {
 app.get('/korean', async (req, res) => {
 
 
-    let songInfo;
-    let stream = "http://stream.zeno.fm/mxyv5hrm4f8uv";
-    await internetradio.getStationInfo(stream, (error, station) => {
-        if(error) {
-            console.log(error);
-            songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-        }
-        if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-        else songInfo = station.title;
-    })
 
-    await setInterval(async() => {
-        await internetradio.getStationInfo(stream, (error, station) => {
-            if(error) {
-                console.log(error);
-                songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-            }
-            if(station === undefined) songInfo = "Problem getting song info from the server! Please stand by! Name Will be refreshed every minute!"
-            else songInfo = station.title;
-        })
-    }, 60000)
+  let songInfo = await sN.korean;
 
 
     let agent = req.useragent;
@@ -582,49 +378,11 @@ app.get('/korean', async (req, res) => {
     //res.render('korean', { songInfo })
 })
 
-app.get('/anime', async (req, res) => {
+app.get('/punjabi', async (req, res) => {
 
-    
-      
-      function connect() {
-          
-        ws = new WebSocket('wss://listen.moe/gateway_v2');
-      
-        ws.onopen = () => {
-            clearInterval(heartbeatInterval);
-            heartbeatInterval = null;
-        };
-      
-        ws.onmessage = message => {
-            let songInfo;
-            if (!message.data.length) return;
-            let response;
-            try {
-                response = JSON.parse(message.data);
-            } catch (error) {
-                return;
-            }
-            switch (response.op) {
-                case 0:
-                    ws.send(JSON.stringify({ op: 9 }));
-                    setInterval(() => {
-                      ws.send(JSON.stringify({ op: 9 }));
-                    }, response.d.heartbeat);
-                    
-                    break;
-                case 1:
-                    if (response.t !== 'TRACK_UPDATE' && response.t !== 'TRACK_UPDATE_REQUEST' && response.t !== 'QUEUE_UPDATE' && response.t !== 'NOTIFICATION') break;
-                 
-                    songInfo = `${response.d.song.title} - ${response.d.song.artists[0].name}`
-                    
-                    ws.close();
-                    return songInfo;
-      
-                default:
-                    break;
-            }
-        };
-      }
+
+
+  let songInfo = await sN.punjabi;
 
 
     let agent = req.useragent;
@@ -638,7 +396,31 @@ app.get('/anime', async (req, res) => {
     }
 
     else if(agent.isDesktop === true) {
-        res.send("Page Under construction. Please stand by.")
+        res.render('punjabi', { songInfo })
+    }
+
+    else res.send("Server Side UserAgent Couldnt Detect which type of browser you are on. PROCESS FAILED: EXIT...")
+
+    //res.render('korean', { songInfo })
+})
+
+app.get('/anime', async (req, res) => {
+
+   let songInfo = await sN.anime;
+
+
+    let agent = req.useragent;
+
+    if(agent.isBot === true) {
+        res.send("bot")
+    }
+
+    else if(agent.isMobile === true) {
+        res.send("mobile")
+    }
+
+    else if(agent.isDesktop === true) {
+        res.render('anime', { songInfo })
     }
 
     else res.send("Server Side UserAgent Couldnt Detect which type of browser you are on. PROCESS FAILED: EXIT...")
