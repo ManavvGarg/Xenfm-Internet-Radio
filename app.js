@@ -141,6 +141,32 @@ app.get('/english-rap', async (req, res) => {
     //res.render('english-rap', { songInfo })
 })
 
+app.get('/lil-peep', async (req, res) => {
+
+
+
+    let songInfo = await sN.lilPeep;
+  
+  
+      let agent = req.useragent;
+  
+      if(agent.isBot === true) {
+          res.send("bot")
+      }
+  
+      else if(agent.isMobile === true) {
+          res.send("mobile")
+      }
+  
+      else if(agent.isDesktop === true) {
+          res.render('lil-peep', { songInfo })
+      }
+  
+      else res.send("Server Side UserAgent Couldnt Detect which type of browser you are on. PROCESS FAILED: EXIT...")
+  
+      //res.render('english-rap', { songInfo })
+  })
+
 app.get('/english-electro', async (req, res) => {
 
 
@@ -219,7 +245,33 @@ app.get('/hindi-lofi', async (req, res) => {
     else res.send("Server Side UserAgent Couldnt Detect which type of browser you are on. PROCESS FAILED: EXIT...")
 
     //res.render('hindi-lofi', { songInfo })
-})
+});
+
+app.get('/hindi-lofi', async (req, res) => {
+
+
+
+    let songInfo = await sN.hindiRap;
+  
+  
+      let agent = req.useragent;
+  
+      if(agent.isBot === true) {
+          res.send("bot")
+      }
+  
+      else if(agent.isMobile === true) {
+          res.send("mobile")
+      }
+  
+      else if(agent.isDesktop === true) {
+          res.render('hindi-rap', { songInfo })
+      }
+  
+      else res.send("Server Side UserAgent Couldnt Detect which type of browser you are on. PROCESS FAILED: EXIT...")
+  
+      //res.render('hindi-lofi', { songInfo })
+  })
 
 app.get('/hindi-classics', async (req, res) => {
 
