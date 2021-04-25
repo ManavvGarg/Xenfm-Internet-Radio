@@ -247,7 +247,7 @@ app.get('/hindi-lofi', async (req, res) => {
     //res.render('hindi-lofi', { songInfo })
 });
 
-app.get('/hindi-lofi', async (req, res) => {
+app.get('/hindi-rap', async (req, res) => {
 
 
 
