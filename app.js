@@ -208,7 +208,7 @@ app.get('/hindi', async (req, res) => {
     }
 
     else if(agent.isMobile === true) {
-        res.send("mobile")
+        res.render("mobile/hindi", { songInfo })
     }
 
     else if(agent.isDesktop === true) {
@@ -226,7 +226,7 @@ app.get('/hindi-lofi', async (req, res) => {
 
 
   let songInfo = await sN.hindiLofi;
-
+  if(!songInfo) songInfo = "Track info not available. Please stand by!"
 
     let agent = req.useragent;
 
