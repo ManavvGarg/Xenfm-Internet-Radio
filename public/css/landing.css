@@ -816,7 +816,7 @@ strong {
 }
 
 .button {
-  display: inline-flex;
+  display: flex;
   font-size: 14px;
   line-height: 22px;
   font-weight: 700;
@@ -954,7 +954,6 @@ strong {
 @media (max-width: 640px) {
   .button-wide-mobile {
     width: 100%;
-    max-width: 280px;
   }
 }
 
@@ -1319,11 +1318,7 @@ textarea.form-input {
   color: #292b32;
 }
 
-.invert-color .form-checkbox input:checked,
-.invert-color .form-radio input:checked {
-  /*background-color: !important;*/
-  /*border-color: !important*/
-}
+
 
 .form-group {
   display: flex;
