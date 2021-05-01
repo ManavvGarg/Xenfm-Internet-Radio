@@ -23,102 +23,6 @@
     <meta property="og:url" content="https://play.xenfm.ga/" />
     <script async src="https://arc.io/widget.min.js#emhnn7qg"></script>
 
-<style>
-  /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-    #goBack {
-        width: 100%;
-    }
-
-    .p_img {
-        display: none;
-    }
-
-    .container {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-    #goBack {
-        width: 100%;
-    }
-
-    .p_img {
-        display: none;
-    }
-
-    .container {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-    #goBack {
-        width: 100%;
-    }
-
-    .p_img {
-        display: none;
-    }
-
-    .container {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-    #goBack {
-        width: 100%;
-    }
-
-    .p_img {
-        display: none;
-    }
-
-    .container {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-    #goBack {
-        width: 100%;
-    }
-
-    .p_img {
-        display: none;
-    }
-
-    .container {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-}
-</style>
-
-
-
-
-
   </head>
   <body class="has-animations" onload="songName()">
     <a
@@ -129,9 +33,6 @@
         cursor:pointer;
         background-color: white;
         color: black;
-        @media only screen and (max-width: 600px) {
-          width: 100%;
-        }
       "
       onclick="window.location.href = '/'"
       id="goBack"
@@ -139,138 +40,33 @@
     <div class="body-wrap">
       
       <center>
-      <header class="site-header reveal-from-top" style="width: 100%; max-width: 100%; margin-left: -3%;">
-        <div class="container"  style="width: 100%;">
-          <div class="site-header-inner">
-            <div class="brand" style="margin-top: 35%; margin-left: 20%;">
-              <div style="margin-top: 0;">
-                <h1 style="margin-left: -55%; margin-top: 55%;">XenFM<br>
-                  Hindi Radio
-                </h1><br><br><br>
-                Now Playing: <br> <div id="nowPlaying"><%= songInfo %></div>
+
+        <section class="mobile-player">
+
+            <div id="cover">
+              <div id="app" class="center">
+                  <div id="main_cover">
+                      <div id="main" class="center">
+
+
+                        <audio id="audio" src="https://listen.moe/stream" style="display: none;"></audio>
+                          <div class="bar" id="_1"></div>
+                          <div class="bar" id="_2"></div>
+                          <div class="bar" id="_3"></div>
+                          <div class="bar" id="_4"></div>
+                          <div class="bar" id="_5"></div>
+                      </div>
+                  </div>
+          
+
               </div>
-
-              <div id="cover" style="float: right; margin-top: 15%; margin-left: 40%;">
-                <div id="app" class="center">
-                    <div id="main_cover">
-                        <div id="main" class="center">
-
-
-                          <audio id="audio" src="http://stream.zeno.fm/suczg0k0um0uv" style="display: none;"></audio>
-                            <div class="bar" id="_1"></div>
-                            <div class="bar" id="_2"></div>
-                            <div class="bar" id="_3"></div>
-                            <div class="bar" id="_4"></div>
-                            <div class="bar" id="_5"></div>
-                        </div>
-                    </div>
-            
-
-                </div>
-                <img src="/public/img/f1.gif" class="p_img">
-                <img src="/public/img/bg.gif" class="p_img">
-            </div>
-            <div id= "vol" style="display: inline-block; margin-top: 5%;">
-              
-              <center><br>Current Volume: <span id="currentVol">5%</span> | Mute State: <span id="muteState">Not Muted ❌</span> </center><br>
-
-            <a
-            class="button button-primary button-wide-mobile pulse"
-            style="
-              border: 0;
-              width: 13%;
-              cursor: pointer;
-              background-color: white;
-              color: black;
-            "
-            onclick="muteAudio()"
-            >Mute</a>
-
-
-        <a
-            class="button button-primary button-wide-mobile pulse"
-            id = "vol-5"
-            style="
-              border: 0;
-              width: 13%;
-              cursor: pointer;
-              background-color: white;
-              color: black;
-            "
-            onclick="vol5()"
-            >5%</a>
-
-        <a
-            class="button button-primary button-wide-mobile pulse"
-            id = "vol-20"
-            style="
-              border: 0;
-              width: 13%;
-              cursor: pointer;
-              background-color: white;
-              color: black;
-            "
-            onclick="vol20()"
-            >20%</a>
-
-            <a
-            class="button button-primary button-wide-mobile pulse"
-            id = "vol-40"
-            style="
-              border: 0;
-              width: 13%;
-              cursor: pointer;
-              background-color: white;
-              color: black;
-            "
-            onclick="vol40()"
-            >40%</a>
-
-            <a
-            class="button button-primary button-wide-mobile pulse"
-            id = "vol-60"
-            style="
-              border: 0;
-              width: 13%;
-              cursor: pointer;
-              background-color: white;
-              color: black;
-            "
-            onclick="vol60()"
-            >60%</a>
-
-            <a
-            class="button button-primary button-wide-mobile pulse"
-            id = "vol-80"
-            style="
-              border: 0;
-              width: 13%;
-              cursor: pointer;
-              background-color: white;
-              color: black;
-            "
-            onclick="vol80()"
-            >80%</a>
-
-            <a
-            class="button button-primary button-wide-mobile pulse"
-            id = "vol-100"
-            style="
-              border: 0;
-              width: 13%;
-              cursor: pointer;
-              background-color: white;
-              color: black;
-            "
-            onclick="vol100()"
-            >100%</a>
-            </div>
-
-
-            </div>
+              <img src="/public/img/f1.gif" class="p_img">
+              <img src="/public/img/bg.gif" class="p_img">
           </div>
-        </div>
-      </header>
+
+         
+        </section>
+
     </center>
 <br><br><br><br><br><br>
       <footer class="site-footer center-content-mobile" style="margin-top: 32%">
