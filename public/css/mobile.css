@@ -12,7 +12,7 @@ body {
 
 .p_img
 {
-    position: fixed;
+    position: fixed; 
     top:0;
     left: 0;
     right: 0;
@@ -24,7 +24,7 @@ body {
 .center
 {
     position: absolute;
-    top: 50%;
+    top: 40%;
     right: 0;
     left: 0;
     margin: 0 auto;
@@ -40,6 +40,7 @@ body {
 #main_cover
 {
     position: relative;
+    top: 0;
     display: block;
     width: 300px;
     height: 300px;
