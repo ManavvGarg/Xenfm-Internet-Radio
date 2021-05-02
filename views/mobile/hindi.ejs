@@ -12,6 +12,15 @@
     <link rel="shortcut icon" href="/public/public/img/pfp.png" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.2/css/all.min.css" />
+
+    <script>
+      document.querySelector(".navbar-btn").addEventListener("click", () => {
+        document.querySelector(".navbar-wrapper").classList.toggle("change");
+      })
+    </script>
+    
     <link rel = "icon" href =  
 "/public/img/pfp.png" 
         type = "image/x-icon"> 
@@ -67,12 +76,13 @@
             <br><br><br><br><br><br><br><br><br><br><br><br><br>
             <div class="nowP">
               Now Playing: <br><div id="nowPlaying"><%= songInfo %></div>  
-            </div>
+            </div> <br><br><br>
            
           </section>
   
       </center>
       </header>
+
 
 <br><br><br><br><br><br>
       <footer class="site-footer center-content-mobile">

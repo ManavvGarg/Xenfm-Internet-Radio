@@ -48,7 +48,7 @@ app.get('/', (req, res) => {
     }
 
     else if(agent.isMobile === true) {
-        res.render("mobile")
+        res.render("mobile/index")
     }
 
     else if(agent.isDesktop === true) {
@@ -75,7 +75,7 @@ app.get('/english', async (req, res) => {
     }
 
     else if(agent.isMobile === true) {
-        res.send("mobile")
+        res.render("mobile/english", { songInfo })
     }
 
     else if(agent.isDesktop === true) {
@@ -102,7 +102,7 @@ app.get('/english-lofi', async (req, res) => {
     }
 
     else if(agent.isMobile === true) {
-        res.send("mobile")
+        res.render("mobile/english-lofi", { songInfo })
     }
 
     else if(agent.isDesktop === true) {
@@ -129,7 +129,7 @@ app.get('/english-rap', async (req, res) => {
     }
 
     else if(agent.isMobile === true) {
-        res.send("mobile")
+        res.render("mobile/english-rap", { songInfo })
     }
 
     else if(agent.isDesktop === true) {
@@ -141,31 +141,6 @@ app.get('/english-rap', async (req, res) => {
     //res.render('english-rap', { songInfo })
 })
 
-app.get('/lil-peep', async (req, res) => {
-
-
-
-    let songInfo = await sN.lilPeep;
-  
-  
-      let agent = req.useragent;
-  
-      if(agent.isBot === true) {
-          res.send("bot")
-      }
-  
-      else if(agent.isMobile === true) {
-          res.send("mobile")
-      }
-  
-      else if(agent.isDesktop === true) {
-          res.render('lil-peep', { songInfo })
-      }
-  
-      else res.send("Server Side UserAgent Couldnt Detect which type of browser you are on. PROCESS FAILED: EXIT...")
-  
-      //res.render('english-rap', { songInfo })
-  })
 
 app.get('/english-electro', async (req, res) => {
 
@@ -181,7 +156,7 @@ app.get('/english-electro', async (req, res) => {
     }
 
     else if(agent.isMobile === true) {
-        res.send("mobile")
+        res.render("mobile/english-electro", { songInfo })
     }
 
     else if(agent.isDesktop === true) {
@@ -235,7 +210,7 @@ app.get('/hindi-lofi', async (req, res) => {
     }
 
     else if(agent.isMobile === true) {
-        res.send("mobile")
+        res.render("mobile/hindi-lofi", { songInfo })
     }
 
     else if(agent.isDesktop === true) {
@@ -261,7 +236,7 @@ app.get('/hindi-rap', async (req, res) => {
       }
   
       else if(agent.isMobile === true) {
-          res.send("mobile")
+          res.render("mobile/hindi-rap", { songInfo })
       }
   
       else if(agent.isDesktop === true) {
@@ -287,7 +262,7 @@ app.get('/hindi-classics', async (req, res) => {
     }
 
     else if(agent.isMobile === true) {
-        res.send("mobile")
+        res.render("mobile/hindi-classics", { songInfo })
     }
 
     else if(agent.isDesktop === true) {
@@ -314,7 +289,7 @@ app.get('/gaming', async (req, res) => {
     }
 
     else if(agent.isMobile === true) {
-        res.send("mobile")
+        res.render("mobile/gaming", { songInfo })
     }
 
     else if(agent.isDesktop === true) {
@@ -340,7 +315,7 @@ app.get('/study', async (req, res) => {
     }
 
     else if(agent.isMobile === true) {
-        res.send("mobile")
+        res.render("mobile/study", { songInfo })
     }
 
     else if(agent.isDesktop === true) {
@@ -366,7 +341,7 @@ app.get('/copyright-free', async (req, res) => {
     }
 
     else if(agent.isMobile === true) {
-        res.send("mobile")
+        res.render("mobile/DMCA", { songInfo })
     }
 
     else if(agent.isDesktop === true) {
@@ -392,7 +367,7 @@ app.get('/japanese', async (req, res) => {
     }
 
     else if(agent.isMobile === true) {
-        res.send("mobile")
+        res.render("mobile/japanese", { songInfo })
     }
 
     else if(agent.isDesktop === true) {
@@ -418,7 +393,7 @@ app.get('/korean', async (req, res) => {
     }
 
     else if(agent.isMobile === true) {
-        res.send("mobile")
+        res.render("mobile/korean", { songInfo })
     }
 
     else if(agent.isDesktop === true) {
@@ -444,7 +419,7 @@ app.get('/punjabi', async (req, res) => {
     }
 
     else if(agent.isMobile === true) {
-        res.send("mobile")
+        res.render("mobile/punjabi", { songInfo })
     }
 
     else if(agent.isDesktop === true) {
@@ -468,7 +443,7 @@ app.get('/anime', async (req, res) => {
     }
 
     else if(agent.isMobile === true) {
-        res.send("mobile")
+        res.render("mobile/anime", { songInfo })
     }
 
     else if(agent.isDesktop === true) {

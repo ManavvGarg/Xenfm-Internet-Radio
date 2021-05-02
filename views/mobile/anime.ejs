@@ -5,56 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>XenFM | The 24hr Radio</title>
-    <link rel="stylesheet" href="/public/css/landing.css" />
+    <link rel="stylesheet" href="/public/css/landing-mobile.css" />
     <link rel="stylesheet" href="/public/css/scroll.css">
     <link rel="stylesheet" href="/public/css/play.css">
+    <link rel="stylesheet" href="/public/css/mobile.css">
     <link rel="shortcut icon" href="/public/public/img/pfp.png" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.2/css/all.min.css" />
+
+    <script>
+      document.querySelector(".navbar-btn").addEventListener("click", () => {
+        document.querySelector(".navbar-wrapper").classList.toggle("change");
+      })
+    </script>
+    
     <link rel = "icon" href =  
 "/public/img/pfp.png" 
         type = "image/x-icon"> 
     <meta property="og:title" content="XenFM - The 24/7 Radio" />
     <meta
       property="og:description"
-      content="24-7 Quality rich music station <3"/>
-    <meta property="og:image" content="/public/img/pfp.png" />
-    <meta property="og:url" content="https://xenfm.ga/" />
+      content="24-7 Quality rich music station 3"/>
+    
+    <meta property="og:url" content="https://play.xenfm.ga/" />
     <script async src="https://arc.io/widget.min.js#emhnn7qg"></script>
+
   </head>
   <body class="has-animations" onload="songName()">
     <a
       class="button button-primary button-wide-mobile pulse"
       style="
         border: 0;
-        width: 100%;
         cursor:pointer;
         background-color: white;
         color: black;
       "
       onclick="window.location.href = '/'"
+      id="goBack"
       >⬅ Go Back</a>
     <div class="body-wrap">
       
-      <center>
-      <header class="site-header reveal-from-top" style="width: 100%; max-width: 100%; margin-left: -3%;">
-        <div class="container"  style="width: 100%;">
-          <div class="site-header-inner">
-            <div class="brand" style="margin-top: 35%; margin-left: 20%;">
-              <div style="margin-top: 0;">
-                <h1 style="margin-left: -55%; margin-top: 55%;">XenFM<br>
-                  Anime Music Radio
-                </h1><br><br><br>
-                Now Playing: <br> <div id="nowPlaying"><%= songInfo %></div>
-              </div>
+      <header style="width: 100%; height: 80vh;">
+        <center>
 
-              <div id="cover" style="float: right; margin-top: 15%; margin-left: 40%;">
+          <section class="mobile-player"><br>
+            <h1>XenFM Anime Radio</h1>
+  
+              <div id="cover">
                 <div id="app" class="center">
-                    <div id="main_cover">
+                    <div id="main_cover" class="center">
                         <div id="main" class="center">
-
-
-                          <audio id="audio" src="https://listen.moe/stream" style="display: none;"></audio>
+  
+  
+                          <audio id="audio" src="https://listen.moe/stream" style="display: none;"></audio><br><br><br><br>
                             <div class="bar" id="_1"></div>
                             <div class="bar" id="_2"></div>
                             <div class="bar" id="_3"></div>
@@ -63,115 +68,24 @@
                         </div>
                     </div>
             
-
+  
                 </div>
                 <img src="/public/img/f1.gif" class="p_img">
                 <img src="/public/img/bg.gif" class="p_img">
-            </div>
-            <div id= "vol" style="display: inline-block; margin-top: 5%;">
-              
-              <center><br>Current Volume: <span id="currentVol">5%</span> | Mute State: <span id="muteState">Not Muted ❌</span> </center><br>
-
-            <a
-            class="button button-primary button-wide-mobile pulse"
-            style="
-              border: 0;
-              width: 13%;
-              cursor: pointer;
-              background-color: white;
-              color: black;
-            "
-            onclick="muteAudio()"
-            >Mute</a>
-
-
-        <a
-            class="button button-primary button-wide-mobile pulse"
-            id = "vol-5"
-            style="
-              border: 0;
-              width: 13%;
-              cursor: pointer;
-              background-color: white;
-              color: black;
-            "
-            onclick="vol5()"
-            >5%</a>
-
-        <a
-            class="button button-primary button-wide-mobile pulse"
-            id = "vol-20"
-            style="
-              border: 0;
-              width: 13%;
-              cursor: pointer;
-              background-color: white;
-              color: black;
-            "
-            onclick="vol20()"
-            >20%</a>
-
-            <a
-            class="button button-primary button-wide-mobile pulse"
-            id = "vol-40"
-            style="
-              border: 0;
-              width: 13%;
-              cursor: pointer;
-              background-color: white;
-              color: black;
-            "
-            onclick="vol40()"
-            >40%</a>
-
-            <a
-            class="button button-primary button-wide-mobile pulse"
-            id = "vol-60"
-            style="
-              border: 0;
-              width: 13%;
-              cursor: pointer;
-              background-color: white;
-              color: black;
-            "
-            onclick="vol60()"
-            >60%</a>
-
-            <a
-            class="button button-primary button-wide-mobile pulse"
-            id = "vol-80"
-            style="
-              border: 0;
-              width: 13%;
-              cursor: pointer;
-              background-color: white;
-              color: black;
-            "
-            onclick="vol80()"
-            >80%</a>
-
-            <a
-            class="button button-primary button-wide-mobile pulse"
-            id = "vol-100"
-            style="
-              border: 0;
-              width: 13%;
-              cursor: pointer;
-              background-color: white;
-              color: black;
-            "
-            onclick="vol100()"
-            >100%</a>
-            </div>
-
-
-            </div>
-          </div>
-        </div>
+            </div> <br>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <div class="nowP">
+              Now Playing: <br><div id="nowPlaying"><%= songInfo %></div>  
+            </div> <br><br><br>
+           
+          </section>
+  
+      </center>
       </header>
-    </center>
+
+
 <br><br><br><br><br><br>
-      <footer class="site-footer center-content-mobile" style="margin-top: 32%">
+      <footer class="site-footer center-content-mobile">
         <div class="container">
           <div class="site-footer-inner">
             <div class="footer-top space-between text-xxs">
