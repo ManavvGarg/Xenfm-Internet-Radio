@@ -10,6 +10,7 @@ const radioSchema = new mongoose.Schema({
     hindiLofi: String,
     hindiRap: String,
     hindiOld: String,
+    hindiSad: String,
     japanese: String,
     korean: String,
     anime: String,

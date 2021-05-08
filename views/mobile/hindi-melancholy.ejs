@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>XenFM | The 24hr Radio</title>
+    <link rel="stylesheet" href="/public/css/landing-mobile.css" />
+    <link rel="stylesheet" href="/public/css/scroll.css">
+    <link rel="stylesheet" href="/public/css/play.css">
+    <link rel="stylesheet" href="/public/css/mobile.css">
+    <link rel="shortcut icon" href="/public/public/img/pfp.png" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.2/css/all.min.css" />
+
+    <script>
+      document.querySelector(".navbar-btn").addEventListener("click", () => {
+        document.querySelector(".navbar-wrapper").classList.toggle("change");
+      })
+    </script>
+    
+    <link rel = "icon" href =  
+"/public/img/pfp.png" 
+        type = "image/x-icon"> 
+    <meta property="og:title" content="XenFM - The 24/7 Radio" />
+    <meta
+      property="og:description"
+      content="24-7 Quality rich music station 3"/>
+    
+    <meta property="og:url" content="https://play.xenfm.ga/" />
+    <script async src="https://arc.io/widget.min.js#emhnn7qg"></script>
+
+  </head>
+  <body class="has-animations" onload="songName()">
+    <a
+      class="button button-primary button-wide-mobile pulse"
+      style="
+        border: 0;
+        cursor:pointer;
+        background-color: white;
+        color: black;
+      "
+      onclick="window.location.href = '/'"
+      id="goBack"
+      >⬅ Go Back</a>
+    <div class="body-wrap">
+      
+      <header style="width: 100%; height: 80vh;">
+        <center>
+
+          <section class="mobile-player"><br>
+            <h1>XenFM Hindi Melancholy</h1>
+  
+              <div id="cover">
+                <div id="app" class="center">
+                    <div id="main_cover" class="center">
+                        <div id="main" class="center">
+  
+  
+                          <audio id="audio" src="http://stream.zeno.fm/zwr6y3hegv8uv" style="display: none;"></audio><br><br><br><br>
+                            <div class="bar" id="_1"></div>
+                            <div class="bar" id="_2"></div>
+                            <div class="bar" id="_3"></div>
+                            <div class="bar" id="_4"></div>
+                            <div class="bar" id="_5"></div>
+                        </div>
+                    </div>
+            
+  
+                </div>
+                <img src="/public/img/f1.gif" class="p_img">
+                <img src="/public/img/bg.gif" class="p_img">
+            </div> <br>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <div class="nowP">
+              Now Playing: <br><div id="nowPlaying"><%= songInfo %></div>  
+            </div> <br><br><br>
+           
+          </section>
+  
+      </center>
+      </header>
+
+
+<br><br><br><br><br><br>
+      <footer class="site-footer center-content-mobile">
+        <div class="container">
+          <div class="site-footer-inner">
+            <div class="footer-top space-between text-xxs">
+              <div class="brand">
+                <a href="/"
+                  ><img src="/public/img/pfp.png" alt="Neon" width="32" height="32"
+                /></a>
+              </div>
+              <div class="footer-social">
+                <div>
+                 
+
+                </div>
+              </div>
+            </div>
+            <div
+              class="footer-bottom space-between text-xxs invert-order-desktop"
+            >
+              <nav class="footer-nav">
+                <ul class="list-reset">
+                  <li>
+                    <a target="_blank" href="https://manavgarg.tk"
+                      >Made by [ Manav ]</a
+                    >
+                  </li>
+                </ul>
+              </nav>
+              <div class="footer-copyright">
+                &copy; 2021 XenFM, All Rights Reserved
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="/public/js/landing.js"></script>
+    <script src="/public/js/play-mobile.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+  </body>
+</html>

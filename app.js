@@ -274,6 +274,32 @@ app.get('/hindi-classics', async (req, res) => {
     //res.render('hindi-classics', { songInfo })
 })
 
+app.get('/hindi-melancholy', async (req, res) => {
+
+
+
+  let songInfo = await sN.hindiSad;
+
+
+    let agent = req.useragent;
+
+    if(agent.isBot === true) {
+        res.send("bot")
+    }
+
+    else if(agent.isMobile === true) {
+        res.render("mobile/hindi-melancholy", { songInfo })
+    }
+
+    else if(agent.isDesktop === true) {
+        res.render('hindi-melancholy', { songInfo })
+    }
+
+    else res.send("Server Side UserAgent Couldnt Detect which type of browser you are on. PROCESS FAILED: EXIT...")
+
+    //res.render('hindi-classics', { songInfo })
+})
+
 app.get('/gaming', async (req, res) => {
 
 
